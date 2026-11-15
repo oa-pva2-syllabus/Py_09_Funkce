@@ -28,15 +28,15 @@ Sestavte funkci `multiply`, jenž bude obsahovat tři parametry a, b, c. Nastavt
 ### 7
 `barvy = ["red", "green", "blue", "white"]`
 
-Napište funkci 'add_unique', která jako vstup přijme seznam a prvek. Funkce přidá prvek do seznamu pouze v případě, že se v seznamu ještě nenachází.
+Napište funkci `addUnique`, která jako vstup přijme seznam a prvek. Funkce přidá prvek do seznamu pouze v případě, že se v seznamu ještě nenachází.
 
 ### 8
 `barvy = ["red", "green", "blue", "white", "red", "black", "orange", "black"]`
 
-Deklarujte funkci remove_duplicates, která přijme na vstupu seznam řetězců a vrátí nový seznam obsahující pouze unikátní prvky ze vstupního seznamu.
+Deklarujte funkci `removeDuplicates`, která přijme na vstupu seznam řetězců a vrátí nový seznam obsahující pouze unikátní prvky ze vstupního seznamu.
 
 ### 9
-Sestavte funkci `listsum`, které pomocí parametru předáte seznam čísel. Funkce spočítá a vypíše součet čísel v seznamu, která jsou kladná, nebo jsou menší než -10.
+Sestavte funkci `listSum`, které pomocí parametru předáte seznam čísel. Funkce spočítá a vypíše součet čísel v seznamu, která jsou kladná, nebo jsou menší než -10.
 
 Například pro seznam `-12, -11, -10, -9, 0, 1, 2, 3` bude výstup programu vypadat následovně:
 
