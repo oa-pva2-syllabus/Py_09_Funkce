@@ -1,59 +1,98 @@
 # PVA2 - Programování a vývoj aplikací
 ## Cvičení 09: Funkce
 
-### 1
-Deklarujte funkce `hello`, která vypíše text `Hello world`.
+### Jak řešit
+- Všechny úkoly řešte v souboru `reseni.py`, každou funkci pod komentář s číslem úkolu.
+- **Název funkce, parametry i jejich datové typy opište přesně ze zadání.** Podle nich se řešení automaticky vyhodnocuje.
+- Každá funkce má typové anotace parametrů i návratové hodnoty, funkce bez `return` má `-> None`.
+- Funkce, která počítá, výsledek **vrací** přes `return`. Vypisuje jen tam, kde to zadání výslovně chce.
+- Pod funkci si napište volání a výsledek vypište, ať funkci vyzkoušíte.
+- Po každém `git push` se řešení vyhodnotí a výsledek najdete v pull requestu **Feedback**.
+  Čísla požadavků 1–12 odpovídají číslům úkolů, požadavek 13 kontroluje typové anotace a 14 docstring.
 
-### 2
-Pomocí cyklu použijte funkci `hello` 5krát. tzn. text `hello world` bude vypsán pětkrát.
+### Definice a volání funkce
 
-### 3 
-Deklarujte funkci `showHello`, jenž bude mít vstupní parametr count. Vstupním parametrem count budete určovat, kolikrát se funkce hello zavolá a vypíše výstupní hodnota. 
-Použijte funkci showHello s argumentem dle uvážení
+#### 1
+`pozdrav() -> None`
 
-### 4
-Definujte funkci `square`, jenž bude vracet vypočítanou hodnotu druhé mocniny zadané do vstupního parametru.
+Funkce vypíše text `Hello world` a nic nevrací.
 
-Vyzkoušejte zavolat druhé mocniny čísel 4, 8, 15, 23, -1
+#### 2
+`pozdravKrat(pocet: int) -> None`
 
-### 5
-a) Pomocí funkce `sumOfTwo`, vytvořte součet dvou čísel. Uvnitř fce využijte vhodně funkci return.
+Funkce vypíše `Hello world` tolikrát, kolik určuje parametr `pocet`. Uvnitř volejte funkci `pozdrav()` v cyklu.
 
-b) Sečtěte dvakrát výsledek volání funkce `sumOfTwo` a výsledek zobrazte uživateli. Každé volání fce bude mít jiné argumenty.
+### Návratová hodnota
 
+#### 3
+`druhaMocnina(cislo: int) -> int`
 
-### 6
-Sestavte funkci `multiply`, jenž bude obsahovat tři parametry a, b, c. Nastavte výchozí hodnotu parametru b na 2 a c na 10. Funkce bude vracet provádět matematickou operaci a násobí b a přičítá c.
+Funkce vrátí druhou mocninu čísla. Vyzkoušejte ji pro čísla 4, 8, 15, 23 a -1.
 
-### 7
-`barvy = ["red", "green", "blue", "white"]`
+#### 4
+`soucetDvou(a: float, b: float) -> float`
 
-Napište funkci 'add_unique', která jako vstup přijme seznam a prvek. Funkce přidá prvek do seznamu pouze v případě, že se v seznamu ještě nenachází.
+Funkce vrátí součet dvou čísel. Zavolejte ji dvakrát s různými argumenty, oba výsledky sečtěte a součet vypište.
 
-### 8
-`barvy = ["red", "green", "blue", "white", "red", "black", "orange", "black"]`
+#### 5
+`vypocet(a: int, b: int = 2, c: int = 10) -> int`
 
-Deklarujte funkci remove_duplicates, která přijme na vstupu seznam řetězců a vrátí nový seznam obsahující pouze unikátní prvky ze vstupního seznamu.
+Funkce vrátí výsledek `a * b + c`. Parametry `b` a `c` jsou nepovinné s výchozími hodnotami 2 a 10.
+Například `vypocet(3, 5, 20)` vrátí 35, `vypocet(3, 5)` vrátí 25 a `vypocet(3)` vrátí 16.
 
-### 9
-Sestavte funkci `listsum`, které pomocí parametru předáte seznam čísel. Funkce spočítá a vypíše součet čísel v seznamu, která jsou kladná, nebo jsou menší než -10.
+#### 6
+`jeSude(cislo: int) -> bool`
 
-Například pro seznam `-12, -11, -10, -9, 0, 1, 2, 3` bude výstup programu vypadat následovně:
+Funkce vrátí `True`, když je číslo sudé, jinak `False`.
 
-Součet čísel, která jsou kladná, nebo jsou menší než -10 je -17.
+#### 7
+`minMax(cisla: list[int]) -> tuple[int, int]`
 
-Vytvořte dvě proměnné a uložte do nich dva seznamy:
-* `-14, -12, -10, 1, 2, 3`
-* `1,1,1, -11, -11, -11`
+Funkce vrátí dvojici: nejmenší a největší číslo ze seznamu. Například `minMax([3, 1, 2])` vrátí `(1, 3)`.
 
-Vyzkoušete funkci pro oba seznamy.
+### Seznam jako argument
 
-### 10
-Sestavte funkci `faktorial`, která bude vracet hodnotu faktoriálu zadaného v argumentu. Výsledek faktoriálu zobrazte uživateli.
+#### 8
+`pridejUnikatni(seznam: list[str], prvek: str) -> None`
 
-### 11
-Napište funkci, která přijme na vstup slovo a vrátí jeho vypočtenou "hodnotu" na základě následujících pravidel:
-- Souhlásky mají hodnotu 1 bodu.
-- Samohlásky mají hodnotu 3 bodů.
-- Písmeno "x" má hodnotu 10 bodů.
-- Všechny ostatní znaky mají hodnotu 0 bodů.
+Funkce přidá prvek do **předaného** seznamu, ale jen pokud v něm ještě není. Nic nevrací.
+Vyzkoušejte ji na seznamu `barvy` z `reseni.py`.
+
+#### 9
+`bezDuplicit(seznam: list[str]) -> list[str]`
+
+Funkce vrátí **nový** seznam, ve kterém je každý prvek jen jednou, v pořadí prvního výskytu.
+Předaný seznam nemění. Například pro `["red", "green", "red", "black"]` vrátí `["red", "green", "black"]`.
+Vyzkoušejte ji na seznamu `barvySOpakovanim` z `reseni.py`.
+
+#### 10
+`soucetVybranych(cisla: list[int]) -> int`
+
+Funkce vrátí součet čísel ze seznamu, která jsou kladná nebo menší než -10.
+Například pro seznam `[-12, -11, -10, -9, 0, 1, 2, 3]` vrátí -17.
+
+Funkci zavolejte pro seznamy `cisla1` a `cisla2` z `reseni.py` a výsledky vypište ve tvaru:
+
+```text
+Součet čísel, která jsou kladná, nebo jsou menší než -10 je -17
+```
+
+### Rekurze a dokumentace
+
+#### 11
+`faktorial(n: int) -> int`
+
+Funkce vrátí faktoriál čísla `n` (`5! = 5 * 4 * 3 * 2 * 1 = 120`). Faktoriál 0 je 1.
+Řešit můžete cyklem i rekurzí. Funkci napište i docstring.
+
+#### 12
+`hodnotaSlova(slovo: str) -> int`
+
+Funkce vrátí bodovou hodnotu slova podle pravidel:
+- písmeno `x` má hodnotu 10 bodů,
+- samohlásky (`a e i o u y` i s diakritikou, např. `á é ě í ó ú ů ý`) mají hodnotu 3 body,
+- ostatní písmena (souhlásky) mají hodnotu 1 bod,
+- ostatní znaky (mezery, číslice, interpunkce) mají hodnotu 0 bodů,
+- na velikosti písmen nezáleží.
+
+Například `hodnotaSlova("python")` vrátí 10 a `hodnotaSlova("Xena")` vrátí 17.
